@@ -10,12 +10,20 @@ export const App = () => {
     setTodoText(event.target.value)
   }
 
+  //入力した文字をリストに追加する
   const onClickAdd = () => {
     if(todoText==="")return;
     const newTodos = [...incompleteTodos, todoText];
     setIncompleteTodos(newTodos);
     setTodoText("");
   };
+
+  //削除ボタン
+  const onClickDelete = (index) => {
+    const newTodos = [...incompleteTodos];
+    newTodos.splice(index,1);
+    setIncompleteTodos(newTodos);
+  }
 
   return (
     <>
@@ -26,12 +34,13 @@ export const App = () => {
       <div className="incomplete-area">
         <p className="title">未完了のTODO</p>
         <ul>
-          {incompleteTodos.map((props) =>{
+          {incompleteTodos.map((props,index) =>{
             return(
               <div key={props} className="list-row">
                 <li>{props}</li>
                 <button>完了</button>
-                <button>削除</button>
+                {/*  何行目が押されたか認識するためにindexを追加*/}
+                <button onClick={()=> onClickDelete(index)} >削除</button>
               </div>
             );
           })}
