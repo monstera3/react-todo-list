@@ -63,7 +63,7 @@ export const App = () => {
           {completeTodos.map((props) =>{
             return(
               <div key={props} className="list-row">
-                <li>cccccc</li>
+                <li>{props}</li>
                 <button>戻す</button>
               </div>
             );
