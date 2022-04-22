@@ -7,11 +7,16 @@ let incompleteTodos = localStorage.getItem('storedTodos');
 if (incompleteTodos) {
   todoList = JSON.parse(incompleteTodos);
 }
+let todoList2 = [];
+let completeTodos = localStorage.getItem('storedTodos2');
+if (completeTodos) {
+  todoList = JSON.parse(completeTodos);
+}
 
 
 ReactDOM.render(
 
-  <App incompleteTodos={todoList}/>,
+  <App incompleteTodos={todoList} completeTodos={todoList2} />,
   document.getElementById('root')
 );
 

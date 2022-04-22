@@ -7,7 +7,7 @@ import {Complete} from "./Components/Complete";
 export const App = (props) => {
   const [todoText, setTodoText] = useState('');
   const [incompleteTodos,setIncompleteTodos] = useState(props.incompleteTodos);
-  const [completeTodos,setCompleteTodos] = useState([]);
+  const [completeTodos,setCompleteTodos] = useState(props.completeTodos);
 
   const onChangeTodoText = (event) =>{
     setTodoText(event.target.value)
@@ -38,6 +38,7 @@ export const App = (props) => {
     const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
     setIncompleteTodos(newIncompleteTodos);
     setCompleteTodos(newCompleteTodos);
+    updateStoredTodos(newCompleteTodos);
 
   };
 
@@ -49,6 +50,7 @@ export const App = (props) => {
     const newIncompleteTodos=[...incompleteTodos,completeTodos[index]];
     setCompleteTodos(newCompleteTodos);
     setIncompleteTodos(newIncompleteTodos);
+    updateStoredTodos(newIncompleteTodos);
 
   }
 
