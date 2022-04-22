@@ -27,6 +27,7 @@ export const App = (props) => {
     const newTodos = [...incompleteTodos];
     newTodos.splice(index,1);
     setIncompleteTodos(newTodos);
+    updateStoredTodos(newTodos);
   };
 
   //完了ボタン
@@ -37,6 +38,7 @@ export const App = (props) => {
     const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
     setIncompleteTodos(newIncompleteTodos);
     setCompleteTodos(newCompleteTodos);
+
   };
 
   //戻すボタン
@@ -47,6 +49,7 @@ export const App = (props) => {
     const newIncompleteTodos=[...incompleteTodos,completeTodos[index]];
     setCompleteTodos(newCompleteTodos);
     setIncompleteTodos(newIncompleteTodos);
+
   }
 
   const updateStoredTodos = (updatedTasks) => {
