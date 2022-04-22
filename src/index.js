@@ -2,9 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {App} from './App';
 
+let todoList = [];
+let incompleteTodos = localStorage.getItem('storedTodos');
+if (incompleteTodos) {
+  todoList = JSON.parse(incompleteTodos);
+}
+
+
 ReactDOM.render(
 
-  <App />,
+  <App incompleteTodos={todoList}/>,
   document.getElementById('root')
 );
 

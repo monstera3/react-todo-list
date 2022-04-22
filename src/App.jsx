@@ -4,9 +4,9 @@ import {InputTodo} from "./Components/InputTodo";
 import {IncompleteTodos} from "./Components/IncompleteTodos";
 import {Complete} from "./Components/Complete";
 
-export const App = () => {
+export const App = (props) => {
   const [todoText, setTodoText] = useState('');
-  const [incompleteTodos,setIncompleteTodos] = useState([]);
+  const [incompleteTodos,setIncompleteTodos] = useState(props.incompleteTodos);
   const [completeTodos,setCompleteTodos] = useState([]);
 
   const onChangeTodoText = (event) =>{
@@ -18,6 +18,7 @@ export const App = () => {
     if(todoText==="")return;
     const newTodos = [...incompleteTodos, todoText];
     setIncompleteTodos(newTodos);
+    updateStoredTodos(newTodos);
     setTodoText("");
   };
 
@@ -46,6 +47,10 @@ export const App = () => {
     const newIncompleteTodos=[...incompleteTodos,completeTodos[index]];
     setCompleteTodos(newCompleteTodos);
     setIncompleteTodos(newIncompleteTodos);
+  }
+
+  const updateStoredTodos = (updatedTasks) => {
+    localStorage.setItem('storedTodos', JSON.stringify(updatedTasks));
   }
 
   return (
