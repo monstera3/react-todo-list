@@ -34,11 +34,12 @@ export const App = (props) => {
   const onClickComplete = (index) => {
     const newIncompleteTodos = [...incompleteTodos];
     newIncompleteTodos.splice(index,1);
+    updateStoredTodos(newIncompleteTodos);
 
     const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
     setIncompleteTodos(newIncompleteTodos);
     setCompleteTodos(newCompleteTodos);
-    updateStoredTodos(newCompleteTodos);
+    updateStoredTodos2(newCompleteTodos);
 
   };
 
@@ -46,6 +47,7 @@ export const App = (props) => {
   const onClickBack = (index) => {
     const newCompleteTodos=[...completeTodos];
     newCompleteTodos.splice(index,1);
+    updateStoredTodos2(newCompleteTodos);
 
     const newIncompleteTodos=[...incompleteTodos,completeTodos[index]];
     setCompleteTodos(newCompleteTodos);
@@ -54,8 +56,14 @@ export const App = (props) => {
 
   }
 
+  //ローカルストレージのキーのstoredTodosに追加される
   const updateStoredTodos = (updatedTasks) => {
     localStorage.setItem('storedTodos', JSON.stringify(updatedTasks));
+  }
+
+  //ローカルストレージのキーのstored-completeTodosに追加される
+  const updateStoredTodos2 = (updatedTasks2) => {
+    localStorage.setItem('stored-completeTodos', JSON.stringify(updatedTasks2));
   }
 
   return (
