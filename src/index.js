@@ -8,9 +8,9 @@ if (incompleteTodos) {
   todoList = JSON.parse(incompleteTodos);
 }
 let todoList2 = [];
-let completeTodos = localStorage.getItem('storedTodos2');
+let completeTodos = localStorage.getItem('stored-completeTodos');
 if (completeTodos) {
-  todoList = JSON.parse(completeTodos);
+  todoList2 = JSON.parse(completeTodos);
 }
 
 
