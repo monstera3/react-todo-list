@@ -68,6 +68,7 @@ export const App = (props) => {
 
   return (
     <>
+      <h1>TODO LIST</h1>
       <InputTodo
         todoText={todoText}
         onChange={onChangeTodoText}

@@ -1,6 +1,11 @@
 
 body {
   font-family: sans-serif;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+h1{
+  text-align: center;
 }
 
 input {
@@ -32,7 +37,7 @@ li {
   height: 30px;
   border-radius: 8px;
   padding: 8px;
-  margin: 8px;
+  margin: 0 auto;
 }
 
 .incomplete-area {
@@ -40,8 +45,9 @@ li {
   width: 400px;
   min-height: 200px;
   padding: 8px;
-  margin: 8px;
   border-radius: 8px;
+  margin: 8px auto;
+  
 }
 
 .complete-area {
@@ -49,8 +55,9 @@ li {
   width: 400px;
   min-height: 200px;
   padding: 8px;
-  margin: 8px;
   border-radius: 8px;
+  margin: 8px auto;
+  
 }
 
 .title {
