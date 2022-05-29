@@ -1,4 +1,6 @@
 import React from "react";
+import {AiOutlineCheck} from 'react-icons/ai'
+import {AiOutlineDelete} from 'react-icons/ai'
 
 export const IncompleteTodos = (props) => {
   const {Todos,onClickComplete,onClickDelete}= props;
@@ -10,9 +12,9 @@ export const IncompleteTodos = (props) => {
           return(
             <div key={props} className="list-row">
               <li>{props}</li>
-              <button onClick={()=> onClickComplete(index)}>完了</button>
+              <button onClick={()=> onClickComplete(index)}>完了<AiOutlineCheck size="1.2rem"/></button>
               {/*  何行目が押されたか認識するためにindexを追加*/}
-              <button onClick={()=> onClickDelete(index)} >削除</button>
+            <button onClick={()=> onClickDelete(index)} >削除<AiOutlineDelete size="1.2rem"/></button>
             </div>
           );
         })}
